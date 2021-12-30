@@ -1,0 +1,29 @@
+all: bin
+
+.PHONY: bin
+bin:
+	go build -o {{.Name}} ./cmd/{{.Name}}
+
+.PHONY: lint
+lint:
+	find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "*.pb.go" | xargs gofmt -w -d -s
+	find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "*.pb.go" -not -path "*/statik*" | xargs goimports -w -local github.com/{{.Org}}/{{.Dir}}
+
+.PHONY: docker
+docker:
+	docker build -t {{.Name}} .
+
+.PHONY: docker-run
+docker-run:
+	docker run --net host -it --name {{.Name}} --rm \
+		-v $(CURDIR)/config.yml:/opt/config.yml \
+		-e "KONG_DATABASE=off" \
+		-e "KONG_LOG_LEVEL=debug" \
+		-e "KONG_PROXY_LISTEN=0.0.0.0:8000" \
+		-e "KONG_DECLARATIVE_CONFIG=/opt/config.yml" \
+		-p 9000:8000 \
+		{{.Name}}:latest
+
+.PHONY: clean
+clean:
+	rm -f *.so jwt_wallet main main.so
