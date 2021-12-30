@@ -1,8 +1,6 @@
 package {{.NameImport}}
 
 import (
-	"encoding/json"
-
 	"github.com/Kong/go-pdk"
 )
 
