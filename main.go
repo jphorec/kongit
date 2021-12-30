@@ -65,6 +65,7 @@ func main() {
 		{"templates/_main.go", fmt.Sprintf("%s/%s/main.go", dir, pluginEntry)},
 		{"templates/_plugin.go", fmt.Sprintf("%s/%s.go", dir, name)},
 		{"templates/_go.mod", fmt.Sprintf("%s/go.mod", dir)},
+		{"templates/_go.sum", fmt.Sprintf("%s/go.sum", dir)},
 		{"templates/_Dockerfile", fmt.Sprintf("%s/Dockerfile", dir)},
 		{"templates/_main_test.go", fmt.Sprintf("%s/%s/main_test.go", dir, pluginEntry)},
 		{"templates/_Makefile", fmt.Sprintf("%s/Makefile", dir)},
