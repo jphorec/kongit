@@ -7,7 +7,7 @@ bin:
 .PHONY: lint
 lint:
 	find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "*.pb.go" | xargs gofmt -w -d -s
-	find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "*.pb.go" -not -path "*/statik*" | xargs goimports -w -local github.com/{{.Org}}/{{.Dir}}
+	find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" -not -path "*.pb.go" -not -path "*/statik*" | xargs goimports -w -local {{.Module}}}
 
 .PHONY: docker
 docker:
@@ -26,4 +26,4 @@ docker-run:
 
 .PHONY: clean
 clean:
-	rm -f *.so jwt_wallet main main.so
+	rm -f *.so {{.Name}} main main.so

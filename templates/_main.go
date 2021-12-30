@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/Kong/go-pdk/server"
 
-	{{.NameImport}} "github.com/{{.Org}}/{{.Dir}}"
+	{{.NameImport}} {{.Module}}
 )
 
 var (

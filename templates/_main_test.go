@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/Kong/go-pdk/test"
-	{{.NameImport}} "github.com/{{.Org}}/{{.Dir}}"
+	{{.NameImport}} {{.Module}}
 	"github.com/stretchr/testify/assert"
 )
 

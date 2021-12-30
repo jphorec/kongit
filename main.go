@@ -14,7 +14,7 @@ type Project struct {
 	Dir        string
 	Name       string
 	NameImport string
-	Org        string
+	Module        string
 }
 
 type TemplateMapping struct {
@@ -22,7 +22,7 @@ type TemplateMapping struct {
 	path     string
 }
 
-var org string
+var module string
 var name string
 var dir string
 
@@ -33,16 +33,16 @@ func init() {
 	flag.StringVar(&name, "name", "", "Required -- The name of the plugin you want to create")
 	flag.StringVar(&name, "n", "", "Required -- name shorthand")
 
-	flag.StringVar(&org, "org", "", "Required -- The name of the github organization your plugin will belong to")
-	flag.StringVar(&org, "o", "", "Required -- org shorthand")
+	flag.StringVar(&module, "module", "", "Required -- The name of the module your plugin will belong to")
+	flag.StringVar(&module, "m", "", "Required -- module shorthand")
 
 	flag.StringVar(&dir, "directory", "", "Optional -- The name of the directory for your plugin - defaults to plugin name")
 	flag.StringVar(&dir, "d", name, "Optional -- directory shorthand")
 }
 func main() {
 	flag.Parse()
-	if len(org) == 0 {
-		fmt.Println("--org is required")
+	if len(module) == 0 {
+		fmt.Println("--module is required")
 		os.Exit(1)
 	}
 
@@ -79,7 +79,7 @@ func main() {
 		Dir:        dir,
 		Name:       name,
 		NameImport: nameImport,
-		Org:        org,
+		Module:        module,
 	}
 	os.Mkdir(dir, 0755)
 	os.MkdirAll(dir+"/"+pluginEntry, 0755)
