@@ -13,8 +13,9 @@ import (
 type Project struct {
 	Dir        string
 	Name       string
-	NameImport string
-	Module        string
+	NameImport 	string
+	NameFormatted  string
+	Module     string
 }
 
 type TemplateMapping struct {
@@ -57,7 +58,9 @@ func main() {
 
 	cmdPath := "cmd/{project}"
 
+	// format naming for imports and kong environment variables
 	nameImport := name
+	upperName := strings.ToUpper(strings.ReplaceAll(name, "-", "_"))
 
 	pluginEntry := strings.ReplaceAll(cmdPath, "{project}", name)
 
@@ -80,7 +83,8 @@ func main() {
 		Dir:        dir,
 		Name:       name,
 		NameImport: nameImport,
-		Module:        module,
+		NameFormatted:  upperName,
+		Module:     module,
 	}
 	os.Mkdir(dir, 0755)
 	os.MkdirAll(dir+"/"+pluginEntry, 0755)

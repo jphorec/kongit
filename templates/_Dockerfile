@@ -12,7 +12,7 @@ COPY --from=build /app/{{.Name}} /usr/local/bin/
 ADD config.yml /opt/
 # Set the needed env vars to run the {{.Name}} plugin
 ENV KONG_PLUGINSERVER_NAMES="{{.Name}}" \
-	KONG_PLUGINSERVER_JWT_WALLET_START_CMD="/usr/local/bin/{{.Name}}" \
-	KONG_PLUGINSERVER_JWT_WALLET_QUERY_CMD="/usr/local/bin/{{.Name}} -dump" \
+	KONG_PLUGINSERVER_{{.NameFormatted}}_QUERY_CMD="/usr/local/bin/{{.Name}} -dump" \
 	KONG_PLUGINS="bundled,{{.Name}}"
+
 

@@ -3,7 +3,7 @@ module {{.Module}}
 go 1.17
 
 require (
-    github.com/Kong/go-pdk v0.7.1
+    github.com/Kong/go-pdk v0.6.0
     github.com/stretchr/testify v1.7.0
 )
 require (
