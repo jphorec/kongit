@@ -32,13 +32,13 @@ Name is the name of the plugin you would like to generate
 
 Example: 
 
-```aidl
+```
 kongit -m github.com/FigureTechnologies/redirect -n redirect
 ```
 
 This example command will generate the following directory
 
-```aidl
+```
 redirect
 ├── Dockerfile
 ├── Makefile
@@ -58,7 +58,7 @@ along with a `Makefile` for building a test docker image and running the docker 
 
 Available flags: 
 
-```aidl
+```
 Usage of kongit:
   -d string
         Optional -- directory shorthand
