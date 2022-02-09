@@ -13,7 +13,7 @@ func New() interface{} {
 }
 
 func (conf Config) Access(kong *pdk.PDK) {
-	kong.Log.Info("Hello from Kong!")
+	kong.Log.Info("Executing {{.Name}} plugin..")
 
 	// Example code below
 	//
