@@ -11,11 +11,11 @@ import (
 )
 
 type Project struct {
-	Dir        string
-	Name       string
-	NameImport 	string
-	NameFormatted  string
-	Module     string
+	Dir           string
+	Name          string
+	NameImport    string
+	NameFormatted string
+	Module        string
 }
 
 type TemplateMapping struct {
@@ -74,17 +74,18 @@ func main() {
 		{"templates/_Makefile", fmt.Sprintf("%s/Makefile", dir)},
 		{"templates/_README.md", fmt.Sprintf("%s/README.md", dir)},
 		{"templates/_config.yml", fmt.Sprintf("%s/config.yml", dir)},
+		{"templates/_.gitignore", fmt.Sprintf("%s/.gitignore", dir)},
 	}
 
 	if strings.ContainsAny(name, "-") {
 		nameImport = strings.ReplaceAll(name, "-", "")
 	}
 	project := &Project{
-		Dir:        dir,
-		Name:       name,
-		NameImport: nameImport,
-		NameFormatted:  upperName,
-		Module:     module,
+		Dir:           dir,
+		Name:          name,
+		NameImport:    nameImport,
+		NameFormatted: upperName,
+		Module:        module,
 	}
 	os.Mkdir(dir, 0755)
 	os.MkdirAll(dir+"/"+pluginEntry, 0755)
