@@ -12,8 +12,10 @@ func New() interface{} {
 	return &Config{}
 }
 
+var pluginName = "{{.Name}}"
+
 func (conf Config) Access(kong *pdk.PDK) {
-	kong.Log.Info("Executing {{.Name}} plugin..")
+	log("Executing {{.Name}} plugin..")
 
 	// Example code below
 	//
@@ -28,4 +30,11 @@ func (conf Config) Access(kong *pdk.PDK) {
 	//
 	// Override Response
 	// king.Response.
+}
+
+/*
+	Logger function to format output for clarification on which plugin produced the log.
+*/
+func log(kong *pdk.PDK, message string) {
+	kong.Log.Info(fmt.Sprintf("[%s] %s", PluginName, message))
 }
