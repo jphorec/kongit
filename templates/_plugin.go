@@ -15,7 +15,7 @@ func New() interface{} {
 var pluginName = "{{.Name}}"
 
 func (conf Config) Access(kong *pdk.PDK) {
-	log("Executing {{.Name}} plugin..")
+	log(kong, "Executing {{.Name}} plugin..")
 
 	// Example code below
 	//
