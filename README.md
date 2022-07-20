@@ -1,6 +1,10 @@
 # Kong Plugin Generator (Kongit)
 
-This plugin generator helps scaffold a Kong plugin with Golang support. 
+[Kong's k8s API Gateway](https://konghq.com/products/api-gateway-platform) allows plugins to run and intercept incoming/outgoing requests for special business use cases such as authorization and authentication.  Historically, these plugins were written in Lua and only Lua.
+
+Now, Kong allows Golang plugins using the [Go Plugin Developer Kit (PDK)](https://pkg.go.dev/github.com/Kong/go-pdk) to run your plugin. However, you need to run the go program as a unix socket and use a common interface for Kong to communicate with it.
+
+This plugin generator will scaffold the Kong plugin with Golang support for you and template the unix socket interface.  After generation, you will have a fully working plugin and only have to add your specific business logic.  
 
 ## Getting started
 
@@ -9,16 +13,13 @@ This plugin generator helps scaffold a Kong plugin with Golang support.
 Install the plugin using `go get` 
 
 ```
-// set the private organization in your .bashrc/.zrc
-export GOPRIVATE=github.com/FigureTechnologies
-
-go install github.com/FigureTechnologies/kongit@latest
+go install github.com/jphorec/kongit@latest
 ```
 
 Building from source
 
 ```
-git clone https://github.com/FigureTechnologies/kongit.git
+git clone https://github.com/jhorec/kongit.git
 
 cd kongit
 
