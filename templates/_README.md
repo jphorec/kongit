@@ -1,10 +1,10 @@
 # {{.Name}} Kong plugin
 
-This plugin was generated with [kongit](https://github.com/FigureTechnologies/kongit)
+This plugin was generated with [kongit](https://github.com/jphorec/kongit)
 
 # Development
 
-This generated project brings in the Kong Golang developer package docs can be found here https://pkg.go.dev/github.com/Kong/go-pdk
+This generated project brings in the Kong Golang developer package docs can be found here: https://pkg.go.dev/github.com/Kong/go-pdk
 
 Each Kong plugin runs its own server and has a socket connection back to Kong for communication. A plugin can have configuration paramters that 
 are defined as a struct in your main plugin file `{{.Name}}.go`. 

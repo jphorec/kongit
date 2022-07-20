@@ -37,6 +37,8 @@ Example:
 kongit -m github.com/jphorec/redirect -n redirect
 ```
 
+#### Whats generated
+
 This example command will generate the following directory
 
 ```
@@ -55,9 +57,11 @@ redirect
 ```
 
 The generated `README.md` will include instructions on how to run your plugin 
-along with a `Makefile` for building a test docker image and running the docker image
+along with a `Makefile` for building a test docker image and running the docker image. 
 
-Available flags: 
+The Make command `make docker && make docker-run` will build the plugin, build the docker image and run an instance of Kong's API Gateway with the generated plugin fully working. 
+
+#### Available flags
 
 ```
 Usage of kongit:
