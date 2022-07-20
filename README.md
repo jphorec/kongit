@@ -2,7 +2,7 @@
 
 [Kong's k8s API Gateway](https://konghq.com/products/api-gateway-platform) allows plugins to run and intercept incoming/outgoing requests for special business use cases such as authorization and authentication.  Historically, these plugins were written in Lua and only Lua.
 
-Now, Kong allows Golang plugins using the [Go Plugin Developer Kit (PDK)](https://pkg.go.dev/github.com/Kong/go-pdk) to run your plugin. However, you need to run the go program as a unix socket and use a common interface for Kong to communicate with it.
+Now, Kong allows Golang plugins using the [Go Plugin Developer Kit (PDK)](https://pkg.go.dev/github.com/Kong/go-pdk) to run your plugin. However, you need to run the go program as a unix socket and use a common interface for Kong to communicate with it which can cause friction for developers. 
 
 This plugin generator will scaffold the Kong plugin with Golang support for you and template the unix socket interface.  After generation, you will have a fully working plugin and only have to add your specific business logic.  
 
@@ -19,7 +19,7 @@ go install github.com/jphorec/kongit@latest
 Building from source
 
 ```
-git clone https://github.com/jhorec/kongit.git
+git clone https://github.com/jphorec/kongit.git
 
 cd kongit
 
@@ -34,7 +34,7 @@ Name is the name of the plugin you would like to generate
 Example: 
 
 ```
-kongit -m github.com/FigureTechnologies/redirect -n redirect
+kongit -m github.com/jphorec/redirect -n redirect
 ```
 
 This example command will generate the following directory
